@@ -1,78 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- Homepage Slider -->
-<div class="homepage-slider">
-    <div id="sequence">
-        <ul class="sequence-canvas">
-            <!-- Slide 1 -->
-            <li class="bg4">
-                <!-- Slide Title -->
-                <h2 class="title">Job Listings</h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">Find the perfect job for you</h3>
-                <!-- Slide Image -->
-                <img class="slide-img" src="{{asset('img/homepage-slider/slide1.png')}}" alt="Slide 1" />
-            </li>
-            <!-- End Slide 1 -->
-            <!-- Slide 2 -->
-            <li class="bg3">
-                <!-- Slide Title -->
-                <h2 class="title">Companies</h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">Great companies are built on great products</h3>
-                <!-- Slide Image -->
-                <img class="slide-img" src="{{asset('img/homepage-slider/slide2.png')}}" alt="Slide 2" />
-            </li>
-            <!-- End Slide 2 -->
-            <!-- Slide 3 -->
-            <li class="bg1">
-                <!-- Slide Title -->
-                <h2 class="title">Are you HR in your company?</h2>
-                <!-- Slide Text -->
-                <h3 class="subtitle">This is the perfect place for you!</h3>
-                <!-- Slide Image -->
-                <img class="slide-img" src="{{asset('img/homepage-slider/slide3.png')}}" alt="Slide 3" />
-            </li>
-            <!-- End Slide 3 -->
-        </ul>
-        <div class="sequence-pagination-wrapper">
-            <ul class="sequence-pagination">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!-- End Homepage Slider -->
 
-<!-- Press Coverage -->
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6">
-                <div class="in-press press-wired">
-                    <h3>There are no secrets to success. It is the result of preparation, hard work, and learning from failure.</h3>
-                    <small>Colin Powells</small>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="in-press press-mashable">
-                    <h3>Self-belief and hard work will always earn you success.</h3>
-                    <small>Virat Kohli</small>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="in-press press-techcrunch">
-                    <h3>It's all about quality of life and finding a happy balance between work and friends and family.</h3>
-                    <small>Philip Green</small>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Press Coverage -->
+@include('components.index.slider')
+
+@include('components.index.quotes')
 
 <!-- Services -->
 <div class="section">
