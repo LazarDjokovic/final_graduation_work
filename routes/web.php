@@ -26,3 +26,8 @@ Route::get('/user_profile', 'HomeController@user_profile')->name('user_profile')
 Route::get('/job_details', 'HomeController@job_details')->name('job_details');
 Route::get('/company_details', 'HomeController@company_details')->name('company_details');
 Route::get('/post_job', 'HomeController@post_job')->name('post_job');
+
+
+Route::get('/test_email', function (){
+    \Illuminate\Support\Facades\Mail::to('lazar.djokovic.pvt@gmail.com')->send(new \App\Mail\TestMail());
+});

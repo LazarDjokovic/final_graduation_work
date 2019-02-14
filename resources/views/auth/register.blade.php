@@ -17,18 +17,27 @@
             <div class="row">
                 <div class="col-sm-5">
                     <div class="basic-login">
-                        <form role="form">
+                        <form action="/register" method="POST">
+                            @csrf
+                            <div class="form-group">
+                                <label for="register-password"><i class="icon-lock"></i> <b>First Name</b></label>
+                                <input class="form-control" name="first_name" id="first_name" type="text" placeholder="">
+                            </div>
+                            <div class="form-group">
+                                <label for="register-password"><i class="icon-lock"></i> <b>Last Name</b></label>
+                                <input class="form-control" name="last_name" id="last_name" type="text" placeholder="">
+                            </div>
                             <div class="form-group">
                                 <label for="register-username"><i class="icon-user"></i> <b>Email</b></label>
-                                <input class="form-control" id="register-username" type="text" placeholder="">
+                                <input class="form-control" name="email" id="email" type="text" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="register-password"><i class="icon-lock"></i> <b>Password</b></label>
-                                <input class="form-control" id="register-password" type="password" placeholder="">
+                                <input class="form-control" name="password" id="password" type="password" placeholder="">
                             </div>
                             <div class="form-group">
                                 <label for="register-password2"><i class="icon-lock"></i> <b>Re-enter Password</b></label>
-                                <input class="form-control" id="register-password2" type="password" placeholder="">
+                                <input class="form-control" name="confirm_password" id="confirm_password" type="password" placeholder="">
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn pull-right">Register</button>
