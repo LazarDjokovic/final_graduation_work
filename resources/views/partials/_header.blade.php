@@ -39,8 +39,17 @@
                         </div><!-- /mainmenu-submenu-inner -->
                     </div><!-- /mainmenu-submenu -->
                 </li>
-                <li class="pull-right"><a href="{{route('register')}}">Register</a></li>
-                <li class="pull-right"><a href="{{route('login')}}">Login</a></li>
+                @if(\Illuminate\Support\Facades\Auth::check())
+                    <li class="pull-right">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-link">Logout</button>
+                        </form>
+                    </li>
+                @else
+                    <li class="pull-right"><a href="{{route('register')}}">Register</a></li>
+                    <li class="pull-right"><a href="{{route('login')}}">Login</a></li>
+                @endif
             </ul>
         </nav>
     </div>

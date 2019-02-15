@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Mail\SendRegisterEmail;
+use App\Mail\TestMail;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -50,7 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'fist_name' => ['required', 'string', 'max:255'],
+            'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
         ]);
@@ -64,13 +68,24 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        dd($data);
-
         return User::create([
-            'name' => $data['name'],
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        Mail::to($request->email)->send(new SendRegisterEmail($request->all()));
+
+        //$this->guard()->login($this->create($request->all()));
+
+        //return redirect($this->redirectPath());
+
+        return redirect()->back()->with('success', 'A fresh verification link has been sent to your email address');
     }
 }
