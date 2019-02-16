@@ -76,16 +76,16 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(Request $request)
+    /*public function register(Request $request)
     {
         $this->validator($request->all())->validate();
 
-        Mail::to($request->email)->send(new SendRegisterEmail($request->all()));
+        //Mail::to($request->email)->send(new SendRegisterEmail($request->all()));
 
-        //$this->guard()->login($this->create($request->all()));
+        $this->guard()->login($this->create($request->all()));
 
         //return redirect($this->redirectPath());
 
         return redirect()->back()->with('success', 'A fresh verification link has been sent to your email address');
-    }
+    }*/
 }

@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -31,3 +31,6 @@ Route::get('/post_job', 'HomeController@post_job')->name('post_job');
 Route::get('/test_email', function (){
     \Illuminate\Support\Facades\Mail::to('lazar.djokovic.pvt@gmail.com')->send(new \App\Mail\TestMail());
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

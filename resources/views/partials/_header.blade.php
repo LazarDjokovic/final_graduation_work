@@ -43,7 +43,7 @@
                     <li class="pull-right">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="btn btn-link">Logout</button>
+                            <button type="submit" class="btn btn-link" style="background-color: #FFFFFF; border: none; color: #999;">Logout</button>
                         </form>
                     </li>
                 @else
